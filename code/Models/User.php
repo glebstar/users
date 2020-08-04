@@ -24,4 +24,13 @@ class User
 
         return $user;
     }
+
+    public static function getUser()
+    {
+        if(self::isLogin()) {
+            return Db::getRow('SELECT * FROM users WHERE id=?', [$_SESSION['user_id']]);
+        }
+
+        return false;
+    }
 }

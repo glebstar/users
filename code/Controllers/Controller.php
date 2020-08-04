@@ -15,6 +15,11 @@ class Controller
             unset($_SESSION['errors']);
         }
 
+        if (isset($_SESSION['message'])) {
+            $this->_pars['message'] = $_SESSION['message'];
+            unset($_SESSION['message']);
+        }
+
         if (!empty($_REQUEST)) {
             $_SESSION['old'] = $_REQUEST;
         }

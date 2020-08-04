@@ -1,5 +1,6 @@
 <h1>Home</h1>
 <?php if($this->_pars['is_login']): ?>
+<p><a href="/account">Account</a></p>
 <p><a href="/logout">Logout</a></p>
 <?php else: ?>
 <p><a href="/login">Login</a></p>

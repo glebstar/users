@@ -20,6 +20,10 @@
             color: red;
         }
 
+        .success {
+            color: darkgreen;
+        }
+
         input {
             width: 400px;
             margin-bottom: 5px;

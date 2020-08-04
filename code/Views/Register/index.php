@@ -13,4 +13,4 @@
     <button type="submit">Register</button>
 </form>
 
-<p><a href="/">Home</a> | <a href="/login">Login</a></p>
+<p><a href="/">Home page</a> | <a href="/login">Login</a></p>

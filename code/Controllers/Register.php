@@ -6,6 +6,7 @@ require_once CODE_DIR . '/Models/User.php';
 
 use code\Model\User;
 use lib\Request;
+use lib\Db;
 
 class Register extends Controller
 {
@@ -26,6 +27,11 @@ class Register extends Controller
             $this->_pars['errors'][] = 'Email is required';
         }
 
+        $user = Db::getRow('SELECT * FROM users WHERE email=?', [$email]);
+        if ($user) {
+            $this->_pars['errors'][] = 'Email already exists';
+        }
+
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $this->_pars['errors'][] = 'Email is incorrect';
         }
@@ -33,6 +39,11 @@ class Register extends Controller
         $login = Request::getVar('login');
         if (!$login) {
             $this->_pars['errors'][] = 'Login is required';
+        }
+
+        $user = Db::getRow('SELECT * FROM users WHERE login=?', [$login]);
+        if ($user) {
+            $this->_pars['errors'][] = 'Login already exists';
         }
 
         $fio = Request::getVar('fio');

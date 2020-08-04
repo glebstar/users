@@ -31,6 +31,14 @@ switch ($_SERVER['REQUEST_URI']) {
         unset($_SESSION['user_id']);
         Request::redirect('/login');
         break;
+    case '/account':
+        require_once CODE_DIR . '/Controllers/Account.php';
+        App::run(\code\Controllers\Account::class, 'index');
+        break;
+    case '/account-post':
+        require_once CODE_DIR . '/Controllers/Account.php';
+        App::run(\code\Controllers\Account::class, 'update');
+        break;
     default:
         require_once CODE_DIR . '/Controllers/Page404.php';
         App::run(\code\Controllers\Page404::class, 'index');
